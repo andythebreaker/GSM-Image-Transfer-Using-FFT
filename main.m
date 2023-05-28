@@ -85,3 +85,5 @@ subplot(2,4,6),imshow(log_fil_img);title('after filter FT image')
 %figure();
 subplot(2,4,7),imshow(noise_img);title('noisy image')
 subplot(2,4,8);imshow(result,[]);title('denoised image')
+
+playa(fil_img)

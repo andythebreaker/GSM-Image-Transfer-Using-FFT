@@ -5,8 +5,10 @@ def convert_to_markdown(csv_file):
     with open(csv_file, 'r') as file:
         reader = csv.reader(file)
         table = []
-        for row in reader:
-            table.append('|'.join(row))
+        for i, row in enumerate(reader):
+            if i == 1:
+                table.append('|--' * len(row) + '|')
+            table.append('|' + '|'.join(row) + '|')
         return '\n'.join(table)
 
 def select_csv_file():
