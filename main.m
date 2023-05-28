@@ -68,7 +68,7 @@ log_fil_img = mat2gray(log_fil_img);
 % unshift
 fil_img = ifftshift(fil_img); 
 % display the denoised image
-result = real(ifft2(fil_img)); 
+result = real(if3(fil_img)); 
 result = mat2gray(result);
 %figure();
 %subplot(1,2,1),imshow(noise_img);title('noisy image')
@@ -76,7 +76,7 @@ result = mat2gray(result);
 
 figure();
 subplot(2,4,1),imshow(img);title('original image')
-subplot(2,4,2),imshow(noise_img);title('noisy image')
+subplot(2,4,2),imshow(angle(F_oriimg));title('phase')
 %figure();
 subplot(2,4,3),imshow(log_FToriimg);title('log FT original image')
 subplot(2,4,4),imshow(log_FTimage);title('log FT noisy image')
