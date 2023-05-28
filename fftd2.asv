@@ -1,0 +1,16 @@
+function y=fftd2(x)
+define_setting='use_home_made_ftt'
+tmp=zeros(size(x));
+for j=1:1:length(x(:,1))
+    wtf=x(j,:);
+    if Sdefine_setting=='use_home_made_ftt'
+    else
+    end
+tmp(j,:)=fftp3(x(j,:));
+end
+tp=zeros(size(tmp));
+for j=1:1:length(tmp(1,:))
+tp(:,j)=fftp3(tmp(:,j));
+end
+y=tp;
+end

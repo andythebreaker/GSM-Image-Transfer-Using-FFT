@@ -22,9 +22,7 @@ noise_img = add_noise(img,r);
 %subplot(1,2,2),imshow(noise_img);title('noisy image')
 
 %% Fourier transform the original image
-F_oriimg(:,:,1) = fftd2(img(:,:,1));
-F_oriimg(:,:,2) = fftd2(img(:,:,2));
-F_oriimg(:,:,3) = fftd2(img(:,:,3));
+F_oriimg = ft3d2(img);
 % center shift (You can read Section: Periodicity and Center shifting)
 F_orimg = fftshift(F_oriimg); 
 % for displaying the power part by log scale
@@ -36,7 +34,7 @@ log_FToriimg = mat2gray(log_FToriimg);
 %subplot(2,2,1),imshow(log_FToriimg);title('log FT original image')
 
 %% Implement Fourier transform on noisy images
-F_img = fft2(noise_img);
+F_img = ft3d2(noise_img);
 F_mag = fftshift(F_img);
 log_FTimage = log(1+abs(F_mag));
 log_FTimage = mat2gray(log_FTimage);
