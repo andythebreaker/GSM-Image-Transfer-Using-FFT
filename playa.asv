@@ -1,0 +1,27 @@
+function playa(x3)
+tmp=[];
+x=x3(:,:,1);
+for z=1:1:length(x(:,1))
+tmp_0=ifftp3(x(z,:)');
+tmp=[tmp,tmp_0'];
+end
+x=x3(:,:,2);
+for z=1:1:length(x(:,1))
+tmp_0=ifftp3(x(z,:)');
+tmp=[tmp,tmp_0'];
+end
+x=x3(:,:,3);
+for z=1:1:length(x(:,1))
+tmp_0=ifftp3(x(z,:)');
+tmp=[tmp,tmp_0'];
+end
+lower_bound = -0.4;  % Lower bound of the desired range
+upper_bound = 0.4;   % Upper bound of the desired range
+x=abs(tmp);
+% Mapping calculation
+min_x = min(x);
+max_x = max(x);
+mapped_x = ((x - min_x) / (max_x - min_x)) * (upper_bound - lower_bound) + lower_bound;
+sound(mapped_x,44100);
+audiowrite('test.mp3', mapped_x, 44100, 10);
+end

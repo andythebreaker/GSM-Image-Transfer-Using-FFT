@@ -9,7 +9,7 @@ mp3FilePath = 'c.mp3';
 y=y_2ch(:,1);
 
 % Take the FFT of the audio signal
-Y = fftp3(y);
+Y = fft(y);
 
 % Compute the frequency axis
 N = length(Y); % Length of the FFT
